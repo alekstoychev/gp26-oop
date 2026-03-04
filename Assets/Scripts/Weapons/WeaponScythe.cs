@@ -10,11 +10,11 @@ namespace Weapons
 
         private WeaponHandler currWeaponHandler;
         
-        public override void UseWeapon()
+        public override void UseWeapon(WeaponHandler weaponHandler)
         {
             if (isAttackOnCooldown) return;
 
-            Debug.Log("Weapon used");
+            //Debug.Log("Weapon used");
             StartNormalCooldown();
             GetComponent<Animator>().SetBool("isAttacking", true);
         }
@@ -28,10 +28,13 @@ namespace Weapons
         {
             if (isSpecialOnCooldown) return;
             
-            Debug.Log("WeaponScythe: Special effect started");
+            //Debug.Log("WeaponScythe: Special effect started");
             GetComponent<Animator>().SetBool("isSpecial", true);
             
-            currWeaponHandler = weaponHandler;
+            if (weaponHandler)
+            {
+                currWeaponHandler = weaponHandler;
+            }
         }
 
         private void SpawnEffect()
@@ -44,7 +47,7 @@ namespace Weapons
             if (isSpecialOnCooldown) return;
             
             StartSpecialCooldown();
-            Debug.Log("WeaponScythe: Special effect ended");
+            //Debug.Log("WeaponScythe: Special effect ended");
         }
     }
 }

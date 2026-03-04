@@ -72,7 +72,7 @@ MonoBehaviour:
   attackBaseCooldown: 1
   specialDamage: 0
   specialBaseCooldown: 3
-  isSpecialOnCooldown: 0
+  triggerNotifier: {fileID: 7688134467107000225}
   effectPrefab: {fileID: 7963035334425266819, guid: b69ec1ae819b04b119431dd86be97e98, type: 3}
 --- !u!1001 &5205787216467207935
 PrefabInstance:
@@ -128,7 +128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8699583845421759624, guid: bc956f77213138048b30d54ab626e70a, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -137,6 +137,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4926703055965546900, guid: bc956f77213138048b30d54ab626e70a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3807279642824343374}
+    - targetCorrespondingSourceObject: {fileID: 4926703055965546900, guid: bc956f77213138048b30d54ab626e70a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7688134467107000225}
+    - targetCorrespondingSourceObject: {fileID: 4926703055965546900, guid: bc956f77213138048b30d54ab626e70a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2285400768620494406}
   m_SourcePrefab: {fileID: 100100000, guid: bc956f77213138048b30d54ab626e70a, type: 3}
 --- !u!4 &516314285099718097 stripped
 Transform:
@@ -167,5 +173,44 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.808837, y: 0.35, z: 0.22}
+  m_Size: {x: 0.77, y: 0.35, z: 0.28}
   m_Center: {x: -0.30834544, y: 0.61, z: 0.0075740274}
+--- !u!114 &7688134467107000225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892136827553861483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517182db2644b4ae6b7a59f019ae6f9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TriggerNotifier
+--- !u!54 &2285400768620494406
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892136827553861483}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

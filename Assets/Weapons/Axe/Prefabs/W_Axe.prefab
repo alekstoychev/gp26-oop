@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 8462246365863121357}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.78119665, y: 0.831977, z: 0.42961907}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -46,11 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2db3a2ab385524f61b8108f0a3612c71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Weapons.WeaponAxe
-  pickupVariant: {fileID: 549500280103846070, guid: 3c5b6a406475347269309c168d34c29c, type: 3}
   attackDamage: 5
   attackBaseCooldown: 1.2
   specialDamage: 15
   specialBaseCooldown: 2
+  triggerNotifier: {fileID: 0}
   effectPrefab: {fileID: 5962957909114833262, guid: 1aabd6d01fb2b4faa823d5d63af842ee, type: 3}
   effectAreaShowPrefab: {fileID: 6668837093701859466, guid: 96a53c3d5a7cb45b0bb47de135c40ff2, type: 3}
 --- !u!95 &7541250550495915569
@@ -84,8 +84,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 7599336663737511286}
     m_Modifications:
     - target: {fileID: 417134569252294082, guid: a250c778e48c73742ae531b8c9a9bd17, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 417134569252294082, guid: a250c778e48c73742ae531b8c9a9bd17, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7270137901465038394, guid: a250c778e48c73742ae531b8c9a9bd17, type: 3}
       propertyPath: m_LocalPosition.x
@@ -136,8 +140,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8047764633477264512, guid: a250c778e48c73742ae531b8c9a9bd17, type: 3}
-      insertIndex: -1
+      insertIndex: 3
       addedObject: {fileID: 2178444618470251809}
+    - targetCorrespondingSourceObject: {fileID: 8047764633477264512, guid: a250c778e48c73742ae531b8c9a9bd17, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4851048949705206746}
+    - targetCorrespondingSourceObject: {fileID: 8047764633477264512, guid: a250c778e48c73742ae531b8c9a9bd17, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 961280639750173824}
   m_SourcePrefab: {fileID: 100100000, guid: a250c778e48c73742ae531b8c9a9bd17, type: 3}
 --- !u!1 &2355934634774706435 stripped
 GameObject:
@@ -159,12 +169,51 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.47, y: 0.71, z: 0.39}
+  m_Size: {x: 0.61, y: 0.71, z: 0.24}
   m_Center: {x: -0.14, y: 0.52, z: 0}
+--- !u!114 &4851048949705206746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2355934634774706435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517182db2644b4ae6b7a59f019ae6f9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TriggerNotifier
+--- !u!54 &961280639750173824
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2355934634774706435}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &3168887885050504121 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7270137901465038394, guid: a250c778e48c73742ae531b8c9a9bd17, type: 3}

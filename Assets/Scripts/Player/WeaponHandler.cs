@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Weapons;
@@ -63,7 +64,7 @@ namespace Player
 
         void Attack(InputAction.CallbackContext callbackContext)
         {
-            equippedWeaponBase?.UseWeapon();
+            equippedWeaponBase?.UseWeapon(this);
         }
 
         void SpecialAttackBegin(InputAction.CallbackContext callbackContext)
@@ -81,6 +82,11 @@ namespace Player
             Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit hit,
                 weaponMaxRange);
             return hit.point;
+        }
+
+        public Transform GetCameraTransform()
+        {
+            return playerCamera.transform;
         }
         
         private void TryPickupWeapon(InputAction.CallbackContext callbackContext)

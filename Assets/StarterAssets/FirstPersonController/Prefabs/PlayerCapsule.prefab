@@ -417,7 +417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd95dc0ccde3643219785e49186d7173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.WeaponHandler
-  pickupRange: 100
+  pickupRange: 10
   weaponMaxRange: 200
   playerCamera: {fileID: 881619241500417367}
   weaponTransform: {fileID: 1160263231169670807}

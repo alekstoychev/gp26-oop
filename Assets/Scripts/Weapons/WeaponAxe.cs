@@ -21,11 +21,11 @@ namespace Weapons
             }
         }
         
-        public override void UseWeapon()
+        public override void UseWeapon(WeaponHandler weaponHandler)
         {
             if (isAttackOnCooldown) return;
 
-            Debug.Log("Weapon used");
+            //Debug.Log("Weapon used");
             StartNormalCooldown();
             GetComponent<Animator>().SetBool("isAttacking", true);
         }
@@ -34,12 +34,16 @@ namespace Weapons
         {
             if (isSpecialOnCooldown) return;
             
-            Debug.Log("WeaponAxe: Special effect started");
+            //Debug.Log("WeaponAxe: Special effect started");
             GetComponent<Animator>().SetBool("isSpecial", true);
             effectAreaShowObject = Instantiate(effectAreaShowPrefab, gameObject.transform.position, gameObject.transform.rotation); 
             
             isSpecialActive = true;
-            currWeaponHandler = weaponHandler;
+            
+            if (weaponHandler)
+            {
+                currWeaponHandler = weaponHandler;
+            }
         }
 
         public override void EndSpecialAttack()
@@ -47,17 +51,21 @@ namespace Weapons
             if (isSpecialOnCooldown) return;
             
             StartSpecialCooldown();
-            Debug.Log("WeaponAxe: Special effect ended");
+            //Debug.Log("WeaponAxe: Special effect ended");
             
             isSpecialActive = false;
             currWeaponHandler = null;
             
-            if (effectAreaShowObject != null)
+            if (!effectAreaShowObject)
             {
-                Instantiate(effectPrefab, effectAreaShowObject.transform.position, effectAreaShowObject.transform.rotation);
-            
-                Destroy(effectAreaShowObject);
+                Debug.LogError("No effect area show found");
+                return;
             }
+            
+            GameObject effectInstance = Instantiate(effectPrefab, effectAreaShowObject.transform.position, effectAreaShowObject.transform.rotation);
+            effectInstance.GetComponent<TriggerNotifier>().OnTriggerEnterOccur += OnTargetHit;
+                
+            Destroy(effectAreaShowObject);
         }
     }
 }
